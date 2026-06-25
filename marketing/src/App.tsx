@@ -21,6 +21,8 @@ const VIDEOS = {
   footer: footerVideo,
 };
 
+const EXTENSION_ZIP_URL = '/break-buddy-extension.zip';
+
 const SCRAMBLE_CHARS =
   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~|}{[]:;?><';
 
@@ -278,15 +280,16 @@ function Navbar({ entranceComplete }: { entranceComplete: boolean }) {
         </div>
 
         <motion.a
-          href="#install"
+          href={EXTENSION_ZIP_URL}
+          download="break-buddy-extension.zip"
           className="flex h-12 items-center gap-2 rounded-full bg-white px-6 text-black"
           whileHover={{ scale: 1.03, backgroundColor: '#e2e2e6' }}
           whileTap={{ scale: 0.97 }}
           onMouseEnter={() => setCtaHovered(true)}
           onMouseLeave={() => setCtaHovered(false)}
         >
-          <i className="bi bi-browser-chrome text-[17px]" aria-hidden="true" />
-          <ScrambleText text="Add to Chrome" isHovered={ctaHovered} />
+          <i className="bi bi-download text-[17px]" aria-hidden="true" />
+          <ScrambleText text="Download ZIP" isHovered={ctaHovered} />
         </motion.a>
       </div>
 
@@ -343,15 +346,16 @@ function Navbar({ entranceComplete }: { entranceComplete: boolean }) {
         </motion.div>
 
         <motion.a
-          href="#install"
+          href={EXTENSION_ZIP_URL}
+          download="break-buddy-extension.zip"
           className="flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-white px-3.5 text-[13px] text-black"
           whileHover={{ scale: 1.03, backgroundColor: '#e2e2e6' }}
           whileTap={{ scale: 0.97 }}
           onMouseEnter={() => setCtaHovered(true)}
           onMouseLeave={() => setCtaHovered(false)}
         >
-          <i className="bi bi-browser-chrome text-[14px]" aria-hidden="true" />
-          <ScrambleText text="Install" isHovered={ctaHovered} />
+          <i className="bi bi-download text-[14px]" aria-hidden="true" />
+          <ScrambleText text="Download" isHovered={ctaHovered} />
         </motion.a>
       </div>
     </motion.nav>
@@ -663,8 +667,8 @@ function Technology() {
 
 function Architecture() {
   const layers = [
-    ['Step 1', 'Load Unpacked'],
-    ['Step 2', 'Add Sites'],
+    ['Step 1', 'Download ZIP'],
+    ['Step 2', 'Load Unpacked'],
     ['Step 3', 'Take Breaks'],
   ];
 
@@ -684,10 +688,24 @@ function Architecture() {
             Three steps. Zero friction.
           </h2>
           <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-white/45 sm:text-[17px]">
-            Open chrome://extensions, enable Developer mode, and load the break-buddy folder.
-            Add your sites in the popup, save, and reload any open tabs on those domains.
+            Not on the Chrome Web Store yet — download the ZIP, unzip it, then open
+            chrome://extensions, enable Developer mode, and click Load unpacked. Add your sites in
+            the popup, save, and reload any open tabs on those domains.
           </p>
         </motion.div>
+
+        <motion.a
+          href={EXTENSION_ZIP_URL}
+          download="break-buddy-extension.zip"
+          className="mt-10 inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-[13px] text-white/85 transition-colors hover:border-white/40 hover:text-white"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <i className="bi bi-download" aria-hidden="true" />
+          Download extension ZIP
+        </motion.a>
 
         <motion.div
           className="mt-20 flex flex-col items-center gap-4"
@@ -738,10 +756,23 @@ function Footer() {
               minutes" and meaning fifty.
             </p>
             <ol className="mt-8 space-y-3 text-[13px] leading-relaxed text-white/45">
-              <li>1. Open chrome://extensions</li>
-              <li>2. Enable Developer mode → Load unpacked</li>
-              <li>3. Select the break-buddy folder and save your sites</li>
+              <li>1. Download and unzip break-buddy-extension.zip</li>
+              <li>2. Open chrome://extensions → Developer mode → Load unpacked</li>
+              <li>3. Select the unzipped folder and save your sites in the popup</li>
             </ol>
+            <motion.a
+              href={EXTENSION_ZIP_URL}
+              download="break-buddy-extension.zip"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[13px] text-black"
+              whileHover={{ scale: 1.03, backgroundColor: '#e2e2e6' }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <i className="bi bi-download" aria-hidden="true" />
+              Download extension ZIP
+            </motion.a>
+            <p className="mt-4 text-[11px] text-white/30">
+              Not published on the Chrome Web Store — sideload via Load unpacked.
+            </p>
           </div>
           <p className="mt-12 text-[12px] text-white/25">
             (c) 2026 Break Buddy. A friction tool for healthier browsing.

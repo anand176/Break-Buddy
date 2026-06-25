@@ -7,3 +7,4 @@ dist-ssr/
 !.env.example
 /marketing/node_modules/
 /marketing/dist/
+/marketing/public/break-buddy-extension.zip

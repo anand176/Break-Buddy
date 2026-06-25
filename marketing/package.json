@@ -4,7 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "zip:extension": "node scripts/zip-extension.mjs",
+    "predev": "npm run zip:extension",
     "dev": "vite",
+    "prebuild": "npm run zip:extension",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
   },

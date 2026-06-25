@@ -16,10 +16,18 @@ Break-Buddy/
 
 **Path:** `extension/`
 
-1. Open `chrome://extensions`
-2. Enable **Developer mode**
-3. Click **Load unpacked**
-4. Select the `extension/` folder
+### Download from the marketing site
+
+Run the marketing site (`npm run dev` or deploy `marketing/dist`). The **Download ZIP** button
+serves `break-buddy-extension.zip`, rebuilt automatically before `dev` and `build`.
+
+### Manual install (load unpacked)
+
+1. Download and unzip `break-buddy-extension.zip` (or use the `extension/` folder directly)
+2. Open `chrome://extensions`
+3. Enable **Developer mode**
+4. Click **Load unpacked**
+5. Select the unzipped `extension` folder
 
 See [extension/README.md](extension/README.md) for setup and behavior.
 
@@ -41,6 +49,24 @@ Build for production:
 cd marketing
 npm run build
 ```
+
+---
+
+## Deploy to Vercel
+
+**Do not commit the ZIP.** It is generated automatically during `npm run build` from
+`../extension/` via the `prebuild` script.
+
+1. Import the GitHub repo in [Vercel](https://vercel.com)
+2. Set **Root Directory** to `marketing`
+3. Framework preset: **Vite** (or use the included `marketing/vercel.json`)
+4. Deploy
+
+On each deploy, Vercel runs `prebuild` → zips `extension/` → `public/break-buddy-extension.zip`
+→ Vite copies it to `dist/` → **Download ZIP** works on the live site.
+
+Ensure the full repo is connected (not just the `marketing` folder in isolation) so
+`../extension` exists at build time.
 
 ---
 

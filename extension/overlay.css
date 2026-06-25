@@ -1,0 +1,279 @@
+/* Break Buddy — break screen matches 3dop hero layout */
+
+@import url("https://fonts.googleapis.com/css2?family=Anton+SC&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+#__break_buddy_overlay__ {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: #000;
+  z-index: 2147483647;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 1s ease;
+  font-family: "Space Mono", monospace;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+#__break_buddy_overlay__.bb-visible {
+  opacity: 1;
+}
+
+#__break_buddy_overlay__ .bb-video-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Match 3dop hero + slight scale for cursor parallax headroom */
+#__break_buddy_overlay__ .bb-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transform: translate(0, 0) scale(1.12);
+  transform-origin: center center;
+  will-change: transform, object-position;
+  transition:
+    transform 0.45s cubic-bezier(0.215, 0.61, 0.355, 1),
+    object-position 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+#__break_buddy_overlay__ .bb-dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+#__break_buddy_overlay__ .bb-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: radial-gradient(#ffffff 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+#__break_buddy_overlay__ .bb-watermark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, calc(-50% + 50px));
+  font-family: "Anton SC", sans-serif;
+  font-size: clamp(120px, 30vw, 521px);
+  letter-spacing: -4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.1;
+  pointer-events: none;
+  user-select: none;
+  background: radial-gradient(circle, rgba(142, 127, 148, 0) 0%, #8e7f94 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#__break_buddy_overlay__ .bb-nav {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+@media (min-width: 640px) {
+  #__break_buddy_overlay__ .bb-nav {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #__break_buddy_overlay__ .bb-nav {
+    padding: 0 2rem;
+  }
+}
+
+#__break_buddy_overlay__.bb-visible .bb-nav {
+  opacity: 1;
+}
+
+#__break_buddy_overlay__ .bb-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#__break_buddy_overlay__ .bb-nav-pill {
+  display: flex;
+  height: 48px;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1.25rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+#__break_buddy_overlay__ .bb-nav-badge {
+  height: 48px;
+  padding: 0 1.5rem;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.02em;
+}
+
+#__break_buddy_overlay__ .bb-logo {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+#__break_buddy_overlay__ .bb-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 80px);
+  padding: 0 1rem 2rem;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 1s ease 0.15s;
+}
+
+@media (min-width: 640px) {
+  #__break_buddy_overlay__ .bb-content {
+    padding: 0 1.5rem 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #__break_buddy_overlay__ .bb-content {
+    padding: 0 2rem 3rem;
+  }
+}
+
+#__break_buddy_overlay__.bb-visible .bb-content {
+  opacity: 1;
+}
+
+#__break_buddy_overlay__ .bb-spacer {
+  flex: 1;
+}
+
+#__break_buddy_overlay__ .bb-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  #__break_buddy_overlay__ .bb-bottom {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+}
+
+#__break_buddy_overlay__ .bb-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#__break_buddy_overlay__ .bb-heading {
+  margin: 0;
+  font-size: clamp(40px, 10vw, 100px);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+#__break_buddy_overlay__ .bb-desc {
+  margin: 0;
+  max-width: 24rem;
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (min-width: 640px) {
+  #__break_buddy_overlay__ .bb-desc {
+    font-size: 15px;
+  }
+}
+
+#__break_buddy_overlay__ .bb-right {
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  #__break_buddy_overlay__ .bb-right {
+    text-align: right;
+  }
+}
+
+#__break_buddy_overlay__ .bb-countdown {
+  margin: 0;
+  font-size: clamp(40px, 10vw, 100px);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+#__break_buddy_overlay__ .bb-count-label {
+  margin-top: 0.75rem;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+#__break_buddy_overlay__ .bb-progress {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 280px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  #__break_buddy_overlay__ .bb-progress {
+    margin-left: auto;
+  }
+}
+
+#__break_buddy_overlay__ .bb-progress-fill {
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  transform-origin: left center;
+  transition: transform 1s linear;
+}
+
+@media (min-width: 768px) {
+  #__break_buddy_overlay__ .bb-progress-fill {
+    transform-origin: right center;
+  }
+}

@@ -1,8 +1,9 @@
-node_modules
-dist
-dist-ssr
+node_modules/
+dist/
+dist-ssr/
 *.local
-
 .env
 .env.*
 !.env.example
+/marketing/node_modules/
+/marketing/dist/

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Break Buddy</title>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+  />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 300px;
+      margin: 0;
+      padding: 16px;
+      background: #000;
+      color: #fff;
+      font-family: "Space Mono", monospace;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .logo {
+      width: 16px;
+      height: 16px;
+      fill: #fff;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .sub {
+      margin: 0 0 14px;
+      font-size: 11px;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 4px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      font: inherit;
+      font-size: 12px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .row > div {
+      flex: 1;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 16px;
+      padding: 10px 0;
+      border: none;
+      border-radius: 999px;
+      background: #fff;
+      color: #000;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    button.secondary {
+      margin-top: 10px;
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      font-weight: 400;
+    }
+
+    button.secondary:hover {
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    button.hidden {
+      display: none;
+    }
+
+    #status {
+      min-height: 14px;
+      margin-top: 10px;
+      font-size: 11px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .hint {
+      margin-top: 2px;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <svg class="logo" viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="4" y="3" width="5" height="18" rx="2.5" />
+      <rect x="15" y="3" width="5" height="18" rx="2.5" />
+    </svg>
+    <h1>Break Buddy</h1>
+  </div>
+  <p class="sub">Full-screen cinematic break overlay — built-in video, smart tab-aware timer.</p>
+
+  <label for="sitesInput">Sites to limit</label>
+  <input type="text" id="sitesInput" placeholder="youtube.com, x.com" />
+  <div class="hint">Comma separated bare domains</div>
+
+  <div class="row">
+    <div>
+      <label for="limitInput">Focus limit (min)</label>
+      <input type="number" id="limitInput" min="1" value="10" />
+    </div>
+    <div>
+      <label for="breakInput">Break length (min)</label>
+      <input type="number" id="breakInput" min="1" value="5" />
+    </div>
+  </div>
+
+  <button id="saveBtn">Save settings</button>
+  <button id="endBreakBtn" class="secondary hidden" type="button">End break now</button>
+  <div id="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 
 Chrome extension + marketing site for **Break Buddy** — a cinematic screen-break tool for focused browsing.
 
-## Repository structure
+## Repository structu
 
 ```
 Break-Buddy/

@@ -72,4 +72,4 @@ Ensure the full repo is connected (not just the `marketing` folder in isolation)
 
 ## License
 
-See [LICENSE](LICENSE).
+See [LICENSE](LICENSE)

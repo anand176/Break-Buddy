@@ -16,7 +16,7 @@ Break-Buddy/
 
 **Path:** `extension/`
 
-### Download from the marketing sit.
+### Download from the marketing sit
 
 Run the marketing site (`npm run dev` or deploy `marketing/dist`). The **Download ZIP** button
 serves `break-buddy-extension.zip`, rebuilt automatically before `dev` and `build`.

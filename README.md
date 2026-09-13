@@ -19,7 +19,7 @@ Break-Buddy/
 ### Download from the marketing sit
 
 Run the marketing site (`npm run dev` or deploy `marketing/dist`). The **Download ZIP** button
-serves `break-buddy-extension.zip`, rebuilt automatically before `dev` and `build`.
+serves `break-buddy-extension.zip`, rebuilt automatically before `dev` and `build`
 
 ### Manual install (load unpacked)
 

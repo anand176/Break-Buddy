@@ -63,7 +63,7 @@ npm run build
 4. Deploy
 
 On each deploy, Vercel runs `prebuild` → zips `extension/` → `public/break-buddy-extension.zip`
-→ Vite copies it to `dist/` → **Download ZIP** works on the live site.
+→ Vite copies it to `dist/` → **Download ZIP** works on the live site
 
 Ensure the full repo is connected (not just the `marketing` folder in isolation) so
 `../extension` exists at build time.

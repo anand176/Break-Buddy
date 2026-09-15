@@ -66,7 +66,7 @@ On each deploy, Vercel runs `prebuild` → zips `extension/` → `public/break-b
 → Vite copies it to `dist/` → **Download ZIP** works on the live site.
 
 Ensure the full repo is connected (not just the `marketing` folder in isolation) so
-`../extension` exists at build time.
+`../extension` exists at build time
 
 ---
 

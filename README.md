@@ -29,7 +29,7 @@ serves `break-buddy-extension.zip`, rebuilt automatically before `dev` and `buil
 4. Click **Load unpacked**
 5. Select the unzipped `extension` folder
 
-See [extension/README.md](extension/README.md) for setup and behavior.
+See [extension/README.md](extension/README.md) for setup and behavior
 
 ---
 

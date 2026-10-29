@@ -14,7 +14,7 @@ Break-Buddy/
 
 ## Extension
 
-**Path:** `extension
+**Path:** `extensio
 
 ### Download from the marketing si
 
